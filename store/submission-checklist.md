@@ -64,7 +64,7 @@ Take these after loading the extension in Chrome. Use a 1280×800 browser window
 ## Packaging the extension
 
 ```bash
-cd /Users/kherloev/Dropbox/Projekter/FlagHero
+cd /path/to/flaghero
 zip -r flaghero-0.1.0.zip . \
   --exclude "*.DS_Store" \
   --exclude "store/*" \
