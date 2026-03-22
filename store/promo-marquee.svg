@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 560" width="1400" height="560">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a8a"/>
+      <stop offset="60%" style="stop-color:#2563eb"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="560" fill="url(#bg)"/>
+
+  <!-- Subtle grid -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  </pattern>
+  <rect width="1400" height="560" fill="url(#grid)"/>
+
+  <!-- ── Left: branding & copy ── -->
+
+  <!-- Flag icon -->
+  <text x="96" y="210" font-family="-apple-system, sans-serif" font-size="88" fill="white">⚑</text>
+
+  <!-- Wordmark -->
+  <text x="96" y="278" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    font-size="72" font-weight="800" fill="white" letter-spacing="-2">FlagHero</text>
+
+  <!-- Tagline -->
+  <text x="96" y="326" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    font-size="24" fill="rgba(255,255,255,0.8)" letter-spacing="0.2">
+    Save, apply, and fix URL flags — without asking engineering.
+  </text>
+
+  <!-- Feature list -->
+  <text x="96" y="384" font-family="-apple-system, sans-serif" font-size="18" fill="rgba(255,255,255,0.65)">
+    ✓  One-click apply to any page
+  </text>
+  <text x="96" y="412" font-family="-apple-system, sans-serif" font-size="18" fill="rgba(255,255,255,0.65)">
+    ✓  Save flags with plain-English notes
+  </text>
+  <text x="96" y="440" font-family="-apple-system, sans-serif" font-size="18" fill="rgba(255,255,255,0.65)">
+    ✓  Fix tool for broken or mistyped flags
+  </text>
+  <text x="96" y="468" font-family="-apple-system, sans-serif" font-size="18" fill="rgba(255,255,255,0.65)">
+    ✓  Standard and Engineering language modes
+  </text>
+
+  <!-- ── Right: mock popup UI ── -->
+  <!-- Popup shadow -->
+  <rect x="760" y="60" width="344" height="440" rx="14" fill="rgba(0,0,0,0.25)" transform="translate(6,8)"/>
+  <!-- Popup card -->
+  <rect x="760" y="60" width="344" height="440" rx="14" fill="white"/>
+
+  <!-- Header -->
+  <rect x="760" y="60" width="344" height="52" rx="14" fill="white"/>
+  <rect x="760" y="98" width="344" height="14" fill="white"/>
+  <rect x="760" y="111" width="344" height="1" fill="#e4e4e7"/>
+  <!-- Logo -->
+  <text x="782" y="94" font-family="-apple-system, sans-serif" font-size="22" fill="#2563eb">⚑</text>
+  <text x="808" y="94" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    font-size="17" font-weight="700" fill="#18181b">FlagHero</text>
+  <!-- Mode toggle -->
+  <rect x="1002" y="76" width="84" height="24" rx="12" fill="#f4f4f5" stroke="#e4e4e7" stroke-width="1"/>
+  <text x="1044" y="92" font-family="-apple-system, sans-serif" font-size="12" font-weight="600"
+    fill="#18181b" text-anchor="middle">Reg · Eng</text>
+
+  <!-- Section: Flags on this page -->
+  <text x="782" y="138" font-family="-apple-system, sans-serif" font-size="10" font-weight="600"
+    fill="#71717a" letter-spacing="0.6">FLAGS ON THIS PAGE</text>
+
+  <!-- Current param card -->
+  <rect x="782" y="148" width="300" height="44" rx="8" fill="white" stroke="#e4e4e7" stroke-width="1"/>
+  <text x="796" y="168" font-family="Menlo, monospace" font-size="12" fill="#71717a">new_checkout=true</text>
+  <rect x="796" y="178" width="76" height="20" rx="5" fill="#2563eb"/>
+  <text x="834" y="192" font-family="-apple-system, sans-serif" font-size="11" font-weight="600"
+    fill="white" text-anchor="middle">Save flag</text>
+
+  <!-- Divider -->
+  <rect x="760" y="202" width="344" height="1" fill="#e4e4e7"/>
+
+  <!-- Section: My Flags -->
+  <text x="782" y="224" font-family="-apple-system, sans-serif" font-size="10" font-weight="600"
+    fill="#71717a" letter-spacing="0.6">MY FLAGS</text>
+
+  <!-- Search bar -->
+  <rect x="782" y="232" width="300" height="28" rx="6" fill="#f5f5f7" stroke="#e4e4e7" stroke-width="1"/>
+  <text x="796" y="250" font-family="-apple-system, sans-serif" font-size="12" fill="#a1a1aa">Search flags…</text>
+
+  <!-- Library card 1 -->
+  <rect x="782" y="270" width="300" height="72" rx="8" fill="white" stroke="#e4e4e7" stroke-width="1"/>
+  <text x="796" y="290" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    font-size="13" font-weight="500" fill="#18181b">New checkout flow</text>
+  <text x="796" y="306" font-family="Menlo, monospace" font-size="11" fill="#71717a">new_checkout=true</text>
+  <rect x="796" y="314" width="36" height="14" rx="7" fill="#eff6ff"/>
+  <text x="814" y="324" font-family="-apple-system, sans-serif" font-size="10" fill="#1d4ed8" text-anchor="middle">demo</text>
+  <rect x="838" y="314" width="48" height="14" rx="7" fill="#eff6ff"/>
+  <text x="862" y="324" font-family="-apple-system, sans-serif" font-size="10" fill="#1d4ed8" text-anchor="middle">staging</text>
+  <rect x="926" y="316" width="80" height="20" rx="5" fill="#2563eb"/>
+  <text x="966" y="330" font-family="-apple-system, sans-serif" font-size="11" font-weight="600"
+    fill="white" text-anchor="middle">Apply to page</text>
+  <text x="1014" y="330" font-family="-apple-system, sans-serif" font-size="11" fill="#71717a">✕</text>
+  <text x="1040" y="330" font-family="-apple-system, sans-serif" font-size="11" fill="#71717a">Not working?</text>
+
+  <!-- Library card 2 -->
+  <rect x="782" y="352" width="300" height="66" rx="8" fill="white" stroke="#e4e4e7" stroke-width="1"/>
+  <text x="796" y="372" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    font-size="13" font-weight="500" fill="#18181b">Dark mode preview</text>
+  <text x="796" y="388" font-family="Menlo, monospace" font-size="11" fill="#71717a">theme=dark</text>
+  <rect x="926" y="398" width="80" height="20" rx="5" fill="#2563eb"/>
+  <text x="966" y="412" font-family="-apple-system, sans-serif" font-size="11" font-weight="600"
+    fill="white" text-anchor="middle">Apply to page</text>
+
+  <!-- Library card 3 (partially visible) -->
+  <rect x="782" y="430" width="300" height="56" rx="8" fill="white" stroke="#e4e4e7" stroke-width="1"/>
+  <text x="796" y="450" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    font-size="13" font-weight="500" fill="#18181b">Beta feature access</text>
+  <text x="796" y="466" font-family="Menlo, monospace" font-size="11" fill="#71717a">beta=1</text>
+
+  <!-- Fade-out at bottom of popup -->
+  <defs>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="white" stop-opacity="0"/>
+      <stop offset="100%" stop-color="white" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+  <rect x="760" y="440" width="344" height="60" rx="0" fill="url(#fade)"/>
+  <rect x="760" y="486" width="344" height="14" rx="0" fill="white"/>
+
+  <!-- "For PMs, CS, ops, sales" label under popup -->
+  <text x="932" y="530" font-family="-apple-system, sans-serif" font-size="16"
+    fill="rgba(255,255,255,0.55)" text-anchor="middle">For PMs, CS, ops, and sales — no engineering degree required.</text>
+</svg>

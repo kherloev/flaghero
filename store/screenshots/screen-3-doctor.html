@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FlagHero — Doctor</title>
+<style>
+html, body { margin: 0; padding: 0; width: 1280px; height: 800px; overflow: hidden; background: #050508; display: flex; justify-content: center; align-items: center; }
+.popup-wrap { width: 380px; background: #0c0c10; border-radius: 14px; overflow: hidden; box-shadow: 0 24px 80px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.06); }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+.hidden { display: none !important; }
+:root {
+  --bg: #0c0c10; --surface: #16161d; --surface-2: #1e1e28;
+  --border: rgba(255,255,255,0.07); --border-hover: rgba(255,255,255,0.14);
+  --accent-a: #7c3aed; --accent-b: #4f46e5;
+  --accent: linear-gradient(135deg, #7c3aed, #4f46e5);
+  --accent-glow: rgba(124,58,237,0.35);
+  --text: #f4f4f6; --text-muted: #8888a0; --text-dim: #55556a;
+  --success: #22c55e; --danger: #f87171; --warn: #fbbf24;
+  --tag-bg: rgba(124,58,237,0.18); --tag-text: #c4b5fd;
+  --radius: 11px; --radius-sm: 7px; --radius-xs: 5px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 13px; color: var(--text); -webkit-font-smoothing: antialiased;
+}
+.popup { width: 380px; background: var(--bg); }
+.header { display: flex; align-items: center; justify-content: space-between; padding: 13px 16px 12px; background: linear-gradient(180deg, rgba(124,58,237,0.08) 0%, transparent 100%), var(--bg); }
+.header-brand { display: flex; align-items: center; gap: 8px; }
+.header-logo { font-size: 20px; filter: drop-shadow(0 0 8px rgba(124,58,237,0.6)); }
+.header-title { font-size: 15px; font-weight: 800; letter-spacing: -0.5px; background: linear-gradient(135deg, #fff 30%, #c4b5fd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.header-rule { height: 1px; background: linear-gradient(90deg, #7c3aed, #4f46e5, transparent); opacity: 0.5; }
+.mode-toggle { font-size: 11px; font-weight: 600; padding: 4px 11px; border: 1px solid var(--border); border-radius: 20px; background: var(--surface); color: var(--text-muted); letter-spacing: 0.2px; }
+.mode-toggle strong { color: var(--text); }
+.mode-dim { color: var(--text-dim); }
+.section { padding: 12px 16px 6px; }
+.section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.section-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.9px; color: var(--text-dim); }
+.divider { height: 1px; background: var(--border); margin: 6px 0; }
+.tab-bar { display: flex; align-items: center; gap: 2px; margin-bottom: 10px; }
+.tab-btn { font-size: 11px; font-weight: 600; padding: 5px 12px; border: 1px solid transparent; border-radius: 20px; background: transparent; color: var(--text-dim); letter-spacing: 0.2px; }
+.tab-btn.active { color: var(--text); background: var(--surface-2); border-color: var(--border); }
+.tab-bar-actions { display: flex; align-items: center; gap: 2px; margin-left: auto; }
+.tab-add { font-size: 18px; color: var(--text); font-weight: 300; background: none; border: none; padding: 2px 5px; }
+.search-btn-icon { background: none; border: none; color: var(--text-dim); padding: 2px 5px; }
+.param-list { display: flex; flex-direction: column; gap: 5px; }
+.param-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 12px; background: var(--surface); position: relative; overflow: hidden; }
+.param-note { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 2px; line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.card-name { color: var(--text); }
+.card-sep { color: var(--text-dim); }
+.card-kv-inline { font-family: 'SF Mono', monospace; font-size: 12px; color: var(--text-muted); }
+.param-desc { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; line-height: 1.4; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.param-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 7px; }
+.tag { font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 20px; background: var(--tag-bg); color: var(--tag-text); }
+.param-actions { display: flex; align-items: center; gap: 6px; margin-top: 6px; }
+.card-apply { flex: 1; text-align: center; }
+.card-secondary { display: flex; gap: 4px; align-items: center; margin-left: auto; }
+.card-secondary .btn-small { width: 28px; height: 28px; padding: 0; display: flex; align-items: center; justify-content: center; font-size: 14px; border-radius: var(--radius-xs); color: var(--text); border: 1px solid var(--border); background: transparent; }
+.card-secondary .btn-small.danger { color: var(--danger); }
+.btn-primary { font-size: 12px; font-weight: 700; padding: 6px 14px; border: none; border-radius: var(--radius-sm); background: var(--accent); color: #fff; box-shadow: 0 2px 12px var(--accent-glow); }
+.btn-small { font-size: 11px; font-weight: 600; padding: 4px 9px; border: 1px solid var(--border); border-radius: var(--radius-xs); background: transparent; color: var(--text-muted); white-space: nowrap; }
+.btn-small.primary { background: var(--accent); color: #fff; border-color: transparent; box-shadow: 0 1px 8px var(--accent-glow); }
+.current-kv { font-family: 'SF Mono', monospace; font-size: 12px; margin-bottom: 8px; display: flex; align-items: baseline; gap: 2px; }
+.current-key { color: var(--text); font-weight: 600; }
+.current-eq { color: var(--text-dim); }
+.current-value { color: #a78bfa; }
+.current-value.empty { color: var(--text-dim); font-style: italic; }
+.empty-state-inline { font-size: 12px; color: var(--text-dim); padding: 8px 2px 10px; line-height: 1.6; }
+.recent-card { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 11px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface); }
+.recent-card.is-saved { opacity: 0.55; }
+.recent-main { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.recent-kv { font-family: 'SF Mono', monospace; font-size: 12px; font-weight: 500; color: var(--text); }
+.recent-meta { font-size: 10px; color: var(--text-dim); }
+.recent-saved-badge { font-size: 10px; font-weight: 600; color: var(--success); padding: 2px 8px; border: 1px solid rgba(34,197,94,0.25); border-radius: 20px; background: rgba(34,197,94,0.08); }
+.doctor-panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+.doctor-header { display: flex; align-items: center; justify-content: space-between; }
+.doctor-title { font-size: 14px; font-weight: 800; color: var(--text); }
+.doctor-candidate { display: flex; align-items: center; justify-content: space-between; padding: 8px 11px; border: 1px solid var(--border); border-radius: var(--radius-sm); gap: 8px; background: var(--surface-2); }
+.doctor-candidate.likely { border-color: rgba(124,58,237,0.3); background: rgba(124,58,237,0.07); }
+.doctor-label { font-size: 12px; flex: 1; color: var(--text); }
+.doctor-kv { font-family: 'SF Mono', monospace; font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+.doctor-list { display: flex; flex-direction: column; gap: 5px; }
+.doctor-paste-label { font-size: 10px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.7px; }
+.doctor-paste-input { width: 100%; padding: 8px 11px; border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 13px; background: var(--surface-2); color: var(--text-muted); font-family: 'SF Mono', monospace; }
+.popup-footer { display: flex; justify-content: flex-end; padding: 8px 16px 10px; border-top: 1px solid var(--border); margin-top: 6px; }
+.footer-link { background: none; border: none; font-size: 11px; color: var(--text-dim); padding: 2px 4px; }
+.link-icon { display: inline-flex; vertical-align: middle; }
+
+/* Doctor-specific */
+.confidence-pill { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; white-space: nowrap; }
+.confidence-pill.likely { background: rgba(124,58,237,0.18); color: #c4b5fd; }
+.confidence-pill.possible { background: rgba(251,191,36,0.12); color: var(--warn); }
+.doctor-subtitle { font-size: 11px; color: var(--text-dim); }
+.doctor-divider { height: 1px; background: var(--border); }
+</style>
+</head>
+<body>
+<div class="popup-wrap">
+  <div class="popup">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="header-brand">
+        <span class="header-logo">⚑</span>
+        <span class="header-title">FlagHero</span>
+      </div>
+      <div class="mode-toggle"><strong>Reg</strong> <span class="mode-dim">· Eng</span></div>
+    </div>
+    <div class="header-rule"></div>
+
+    <!-- Tab bar -->
+    <div class="section" style="padding-bottom: 0;">
+      <div class="tab-bar">
+        <button class="tab-btn active">My Flags</button>
+        <button class="tab-btn">Recently Seen</button>
+        <div class="tab-bar-actions">
+          <button class="search-btn-icon">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="#55556a" stroke-width="1.5"/><path d="M10.5 10.5L14 14" stroke="#55556a" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </button>
+          <button class="tab-add">+</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- One library card -->
+    <div class="section" style="padding-top: 4px;">
+      <div class="param-list">
+        <div class="param-card">
+          <div class="param-note">
+            <span class="card-name">New dashboard</span>
+            <span class="card-sep"> &mdash; </span>
+            <span class="card-kv-inline">new-dashboard=1</span>
+          </div>
+          <div class="param-desc">Switches to the redesigned dashboard</div>
+          <div class="param-tags">
+            <span class="tag">beta</span>
+          </div>
+          <div class="param-actions">
+            <button class="btn-small primary card-apply">Apply to current page</button>
+            <div class="card-secondary">
+              <button class="btn-small"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button>
+              <button class="btn-small doctor">✚</button>
+              <button class="btn-small">✎</button>
+              <button class="btn-small danger">✕</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Doctor panel inline -->
+    <div class="section" style="padding-top: 6px; padding-bottom: 12px;">
+      <div class="doctor-panel">
+
+        <div class="doctor-header">
+          <div>
+            <div class="doctor-title">Not working?</div>
+            <div class="doctor-subtitle">Diagnose this flag &mdash; <span style="font-family:'SF Mono',monospace; font-size:11px; color:#a78bfa;">new-dashboard=1</span></div>
+          </div>
+          <button class="btn-small" style="font-size:10px; padding: 3px 9px;">Close</button>
+        </div>
+
+        <div class="doctor-divider"></div>
+
+        <div class="doctor-list">
+
+          <div class="doctor-candidate likely">
+            <div class="doctor-label">
+              <div>Underscore separator</div>
+              <div class="doctor-kv">new_dashboard=1</div>
+            </div>
+            <span class="confidence-pill likely">Likely</span>
+            <button class="btn-small primary" style="font-size:10px; padding: 3px 9px;">Try</button>
+          </div>
+
+          <div class="doctor-candidate likely">
+            <div class="doctor-label">
+              <div>camelCase key</div>
+              <div class="doctor-kv">newDashboard=1</div>
+            </div>
+            <span class="confidence-pill likely">Likely</span>
+            <button class="btn-small primary" style="font-size:10px; padding: 3px 9px;">Try</button>
+          </div>
+
+          <div class="doctor-candidate">
+            <div class="doctor-label">
+              <div>Different value</div>
+              <div class="doctor-kv">new-dashboard=true</div>
+            </div>
+            <span class="confidence-pill possible">Possible</span>
+            <button class="btn-small" style="font-size:10px; padding: 3px 9px;">Try</button>
+          </div>
+
+        </div>
+
+        <div class="doctor-divider"></div>
+
+        <div style="display:flex; flex-direction:column; gap:5px;">
+          <div class="doctor-paste-label">Or paste a URL to scan</div>
+          <input class="doctor-paste-input" type="text" placeholder="https://app.example.com/…?flag=value" readonly>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="popup-footer">
+      <button class="footer-link">Learn more</button>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

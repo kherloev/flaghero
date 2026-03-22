@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FlagHero — Small Promo 440×280</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  width: 440px;
+  height: 280px;
+  overflow: hidden;
+}
+
+.tile {
+  width: 440px;
+  height: 280px;
+  position: relative;
+  overflow: hidden;
+  background: #f5f3ff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle purple gradient wash top-left */
+.tile::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 300px 220px at -20px 0px, rgba(124,58,237,0.10) 0%, transparent 100%),
+    radial-gradient(ellipse 200px 200px at 440px 280px, rgba(79,70,229,0.07) 0%, transparent 100%);
+}
+
+/* Left branding */
+.left {
+  position: absolute;
+  left: 36px;
+  top: 0;
+  bottom: 0;
+  width: 210px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+  z-index: 2;
+}
+
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 12px;
+}
+
+.logo-icon {
+  font-size: 22px;
+  color: #7c3aed;
+}
+
+.logo-text {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: #0f0f14;
+}
+
+.tagline {
+  font-size: 12px;
+  color: #52525b;
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.pill {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 20px;
+  background: rgba(124,58,237,0.1);
+  color: #6d28d9;
+  letter-spacing: 0.1px;
+}
+
+/* Right: screenshot */
+.screenshot-wrap {
+  position: absolute;
+  right: 0;
+  top: 16px;
+  bottom: 16px;
+  width: 192px;
+  overflow: hidden;
+  border-radius: 14px 0 0 14px;
+  box-shadow:
+    -16px 0 40px rgba(124,58,237,0.08),
+    -2px 0 0 rgba(0,0,0,0.04),
+    0 8px 32px rgba(0,0,0,0.18);
+  z-index: 2;
+}
+
+.screenshot-wrap img {
+  width: 192px;
+  display: block;
+  /* Show top of screenshot — popup header + flags on this page section */
+}
+
+/* Left fade so screenshot blends into bg */
+.screenshot-wrap::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 32px;
+  background: linear-gradient(to right, #f5f3ff, transparent);
+  z-index: 3;
+}
+
+/* Accent bar at bottom */
+.accent {
+  position: absolute;
+  bottom: 0;
+  left: 36px;
+  width: 180px;
+  height: 2px;
+  background: linear-gradient(90deg, #7c3aed, transparent);
+  z-index: 2;
+}
+</style>
+</head>
+<body>
+<div class="tile">
+  <div class="left">
+    <div class="logo-row">
+      <span class="logo-icon">⚑</span>
+      <span class="logo-text">FlagHero</span>
+    </div>
+    <div class="tagline">Save, apply, and fix URL flags.<br>One click. Any page.</div>
+    <div class="pills">
+      <span class="pill">Flag library</span>
+      <span class="pill">One-click apply</span>
+      <span class="pill">Reg · Eng mode</span>
+    </div>
+  </div>
+
+  <div class="screenshot-wrap">
+    <img src="screenshots/screen-1-current-page.png" alt="FlagHero popup">
+  </div>
+
+  <div class="accent"></div>
+</div>
+</body>
+</html>

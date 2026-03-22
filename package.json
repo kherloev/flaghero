@@ -1,0 +1,16 @@
+{
+  "name": "flaghero",
+  "version": "1.0.0",
+  "main": "service-worker.js",
+  "type": "module",
+  "scripts": {
+    "screenshots": "node store/screenshots/capture.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "playwright": "^1.58.2"
+  }
+}

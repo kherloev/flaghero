@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlagHero</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-brand">
+      <span class="header-logo">⚑</span>
+      <span class="header-title">FlagHero</span>
+    </div>
+    <div class="header-actions">
+      <button class="mode-toggle" id="modeToggle" title=""></button>
+    </div>
+  </header>
+  <div class="header-rule"></div>
+
+  <!-- Current page params -->
+  <section class="section" id="currentSection">
+    <div class="section-header">
+      <span class="section-title" id="currentTitle"></span>
+    </div>
+    <div id="currentList" class="param-list"></div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Tab bar -->
+  <section class="section">
+    <div class="tab-bar">
+      <button class="tab-btn active" id="tabLibrary"></button>
+      <button class="tab-btn" id="tabRecent"></button>
+      <div class="tab-bar-actions">
+        <button class="btn-icon search-toggle-btn" id="searchBtn" title="Search">
+          <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><circle cx="6" cy="6" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M9.5 9.5L12 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <button class="btn-icon tab-add" id="addBtn" title="">＋</button>
+      </div>
+    </div>
+
+    <!-- Library panel -->
+    <div id="panelLibrary">
+      <div class="search-wrap hidden" id="searchWrap">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search…" />
+      </div>
+      <div id="libraryList" class="param-list"></div>
+    </div>
+
+    <!-- Recent panel -->
+    <div id="panelRecent" class="hidden">
+      <div id="recentList" class="param-list"></div>
+    </div>
+  </section>
+
+  <!-- Add / Edit form (hidden by default) -->
+  <div class="form-overlay hidden" id="formOverlay">
+    <div class="form-card">
+      <div class="form-header">
+        <span class="form-title" id="formTitle"></span>
+        <button class="btn-icon" id="formClose">✕</button>
+      </div>
+      <label class="field-label" id="labelName"></label>
+      <input type="text" id="fieldName" class="field-input" />
+      <div class="field-row">
+        <div class="field-col">
+          <label class="field-label" id="labelKey"></label>
+          <input type="text" id="fieldKey" class="field-input mono" />
+        </div>
+        <div class="field-col field-col-sm">
+          <label class="field-label" id="labelValue"></label>
+          <input type="text" id="fieldValue" class="field-input mono" />
+        </div>
+      </div>
+      <div class="field-url-preview" id="urlPreview"></div>
+      <label class="field-label" id="labelNote"></label>
+      <input type="text" id="fieldNote" class="field-input" />
+      <label class="field-label" id="labelTags"></label>
+      <input type="text" id="fieldTags" class="field-input" />
+      <div class="form-actions">
+        <button class="btn-secondary" id="formCancel"></button>
+        <button class="btn-primary" id="formSave"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conflict dialog -->
+  <div class="form-overlay hidden" id="conflictOverlay">
+    <div class="form-card">
+      <p class="conflict-msg" id="conflictMsg"></p>
+      <div class="form-actions">
+        <button class="btn-secondary" id="conflictCancel"></button>
+        <button class="btn-primary" id="conflictConfirm"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Param Doctor panel -->
+  <div class="form-overlay hidden" id="doctorOverlay">
+    <div class="form-card">
+      <div class="form-header">
+        <span class="form-title" id="doctorTitle"></span>
+        <button class="btn-icon" id="doctorClose">✕</button>
+      </div>
+      <div id="doctorCandidates" class="doctor-list"></div>
+      <div class="doctor-divider"></div>
+      <label class="field-label" id="doctorPasteLabel"></label>
+      <input type="text" id="doctorPasteInput" class="field-input" />
+      <div id="doctorPasteResult" class="doctor-paste-result hidden"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="popup-footer">
+    <button class="footer-link" id="learnMoreBtn">Learn more</button>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast hidden" id="toast"></div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

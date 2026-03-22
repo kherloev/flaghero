@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 280" width="440" height="280">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e40af"/>
+      <stop offset="100%" style="stop-color:#2563eb"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="440" height="280" fill="url(#bg)"/>
+
+  <!-- Subtle grid pattern -->
+  <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+    <path d="M 28 0 L 0 0 0 28" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+  </pattern>
+  <rect width="440" height="280" fill="url(#grid)"/>
+
+  <!-- Flag icon -->
+  <text x="48" y="108" font-family="-apple-system, sans-serif" font-size="56" fill="white">⚑</text>
+
+  <!-- Wordmark -->
+  <text x="48" y="148" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    font-size="38" font-weight="700" fill="white" letter-spacing="-1">FlagHero</text>
+
+  <!-- Tagline -->
+  <text x="48" y="176" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    font-size="15" fill="rgba(255,255,255,0.75)" letter-spacing="0.1">Save, apply, and fix URL flags — one click.</text>
+
+  <!-- Feature pills -->
+  <rect x="48" y="206" width="96" height="26" rx="13" fill="rgba(255,255,255,0.15)"/>
+  <text x="96" y="223" font-family="-apple-system, sans-serif" font-size="12" font-weight="500"
+    fill="white" text-anchor="middle">One-click apply</text>
+
+  <rect x="154" y="206" width="72" height="26" rx="13" fill="rgba(255,255,255,0.15)"/>
+  <text x="190" y="223" font-family="-apple-system, sans-serif" font-size="12" font-weight="500"
+    fill="white" text-anchor="middle">Fix tool</text>
+
+  <rect x="236" y="206" width="96" height="26" rx="13" fill="rgba(255,255,255,0.15)"/>
+  <text x="284" y="223" font-family="-apple-system, sans-serif" font-size="12" font-weight="500"
+    fill="white" text-anchor="middle">Reg · Eng mode</text>
+
+  <!-- Mock UI card -->
+  <rect x="290" y="56" width="126" height="152" rx="10" fill="white" opacity="0.97"/>
+  <rect x="302" y="70" width="60" height="7" rx="3.5" fill="#e4e4e7"/>
+  <rect x="302" y="84" width="102" height="7" rx="3.5" fill="#18181b"/>
+  <rect x="302" y="97" width="70" height="5" rx="2.5" fill="#a1a1aa"/>
+  <!-- tag pills -->
+  <rect x="302" y="108" width="32" height="14" rx="7" fill="#eff6ff"/>
+  <rect x="338" y="108" width="40" height="14" rx="7" fill="#eff6ff"/>
+  <!-- apply button -->
+  <rect x="302" y="128" width="102" height="24" rx="6" fill="#2563eb"/>
+  <text x="353" y="144" font-family="-apple-system, sans-serif" font-size="11" font-weight="600"
+    fill="white" text-anchor="middle">Apply to page</text>
+  <!-- divider -->
+  <rect x="302" y="162" width="102" height="1" fill="#e4e4e7"/>
+  <!-- second card -->
+  <rect x="302" y="171" width="60" height="7" rx="3.5" fill="#18181b"/>
+  <rect x="302" y="184" width="80" height="5" rx="2.5" fill="#a1a1aa"/>
+</svg>
